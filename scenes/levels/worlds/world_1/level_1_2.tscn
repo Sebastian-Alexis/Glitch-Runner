@@ -21,7 +21,7 @@ par_time = 35.0
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 2400.0
 offset_bottom = 720.0
-color = Color(0.529, 0.808, 0.922, 1)
+color = Color(0.098, 0.098, 0.098, 1)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(100, 500)

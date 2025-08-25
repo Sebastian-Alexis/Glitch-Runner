@@ -22,11 +22,7 @@ modulate = Color(0.8, 0.471, 0.361, 1.0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 enabled = true
-limit_left = 960
-limit_top = 360
-limit_right = 960
-limit_bottom = 360
-limit_smoothed = false
-position_smoothing_enabled = false
-drag_horizontal_enabled = false
-drag_vertical_enabled = false
+zoom = Vector2(2.5, 2.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+

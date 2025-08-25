@@ -14,6 +14,7 @@ var goal_reached: bool = false
 # References
 var player: CharacterBody2D = null
 var tutorial_ui: Control = null
+var camera: Camera2D = null
 
 signal level_started
 signal level_completed
@@ -109,24 +110,40 @@ func spawn_player() -> void:
 	# Connect player signals
 	player.died.connect(_on_player_died)
 	
-	# Camera limits (if defined)
-	var camera = player.get_node_or_null("Camera2D")
+	# Get the camera that's attached to the player
+	camera = player.get_node_or_null("Camera2D")
 	if camera:
 		setup_camera_limits(camera)
+		print("Camera limits configured for player's camera")
 	
 	emit_signal("player_respawned")
 
 func setup_camera_limits(camera: Camera2D) -> void:
-	# Set camera boundaries based on level
-	var tilemap = get_node_or_null("TileMap")
-	if tilemap:
-		var used_rect = tilemap.get_used_rect()
-		var tile_size = tilemap.tile_set.tile_size
-		
-		camera.limit_left = used_rect.position.x * tile_size.x
-		camera.limit_top = used_rect.position.y * tile_size.y
-		camera.limit_right = used_rect.end.x * tile_size.x
-		camera.limit_bottom = used_rect.end.y * tile_size.y
+	# Dynamically set camera boundaries based on level size
+	var background = get_node_or_null("Background")
+	if not background:
+		print("Warning: No Background node found for camera limits")
+		return
+	
+	# Get level dimensions from the Background ColorRect
+	var level_width = background.size.x if background.has_method("get_size") else background.get_rect().size.x
+	var level_height = background.size.y if background.has_method("get_size") else background.get_rect().size.y
+	
+	# For a Camera2D that's a child of the player, the limits define the world boundaries
+	# The camera will automatically calculate what it can show based on its zoom level
+	# Set simple world boundaries
+	camera.limit_left = 0
+	camera.limit_top = 0
+	camera.limit_right = level_width
+	camera.limit_bottom = level_height
+	
+	print("Camera limits set to level boundaries:")
+	print("  Level size: ", level_width, "x", level_height)
+	print("  Limits: Left=", camera.limit_left, " Top=", camera.limit_top, 
+		  " Right=", camera.limit_right, " Bottom=", camera.limit_bottom)
+	print("  Camera zoom: ", camera.zoom)
+	print("  Player spawn: ", player_spawn_point)
+
 
 func setup_tutorial_triggers() -> void:
 	# Set up position-based tutorial triggers for Level 1-1
