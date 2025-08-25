@@ -1,0 +1,189 @@
+[gd_scene load_steps=5 format=3 uid="uid://blevel11xxxxx"]
+
+[ext_resource type="Script" uid="uid://cwm2jehqsjx0r" path="res://scripts/levels/level_manager.gd" id="1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(1920, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2"]
+size = Vector2(128, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3"]
+size = Vector2(64, 128)
+
+[node name="Level_1_1" type="Node2D"]
+script = ExtResource("1")
+level_name = "Welcome to Perfection!"
+par_time = 20.0
+
+[node name="Background" type="ColorRect" parent="."]
+offset_top = 1.0
+offset_right = 1920.0
+offset_bottom = 721.0
+color = Color(0.098, 0.098, 0.098, 1)
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(100, 500)
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Ground" type="StaticBody2D" parent="Platforms"]
+position = Vector2(960, 680)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Ground"]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/Ground"]
+offset_left = -960.0
+offset_top = -16.0
+offset_right = 960.0
+offset_bottom = 16.0
+color = Color(0.149, 0.149, 0.146, 1)
+
+[node name="Platform1" type="StaticBody2D" parent="Platforms"]
+position = Vector2(400, 584)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform1"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/Platform1"]
+offset_left = -62.0
+offset_top = -16.0
+offset_right = 66.0
+offset_bottom = 16.0
+color = Color(0.423, 0.4, 0.388, 1)
+
+[node name="Platform2" type="StaticBody2D" parent="Platforms"]
+position = Vector2(700, 484)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform2"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/Platform2"]
+offset_left = -64.0
+offset_top = -16.0
+offset_right = 64.0
+offset_bottom = 16.0
+color = Color(0.423, 0.4, 0.388, 1)
+
+[node name="Platform3" type="StaticBody2D" parent="Platforms"]
+position = Vector2(1000, 434)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform3"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/Platform3"]
+offset_left = -64.0
+offset_top = -16.0
+offset_right = 64.0
+offset_bottom = 16.0
+color = Color(0.423, 0.4, 0.388, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform4" type="StaticBody2D" parent="Platforms"]
+position = Vector2(1300, 484)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform4"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/Platform4"]
+offset_left = -64.0
+offset_top = -16.0
+offset_right = 64.0
+offset_bottom = 16.0
+color = Color(0.423, 0.4, 0.388, 1)
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2(1600, 316)
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+shape = SubResource("RectangleShape2D_3")
+
+[node name="ColorRect" type="ColorRect" parent="Goal"]
+offset_left = -32.0
+offset_top = -64.0
+offset_right = 32.0
+offset_bottom = 64.0
+color = Color(0.831, 0.635, 0.498, 1)
+
+[node name="WallStructures" type="Node2D" parent="."]
+
+[node name="LeftWallVisual" type="ColorRect" parent="WallStructures"]
+offset_right = 40.0
+offset_bottom = 720.0
+color = Color(0.149, 0.149, 0.146, 1)
+
+[node name="RightWallVisual" type="ColorRect" parent="WallStructures"]
+offset_left = 1880.0
+offset_right = 1920.0
+offset_bottom = 720.0
+color = Color(0.149, 0.149, 0.146, 1)
+
+[node name="CeilingVisual" type="ColorRect" parent="WallStructures"]
+offset_right = 1920.0
+offset_bottom = 40.0
+color = Color(0.149, 0.149, 0.146, 1)
+
+[node name="WallCollisions" type="Node2D" parent="."]
+
+[node name="LeftWallCollision" type="StaticBody2D" parent="WallCollisions"]
+position = Vector2(20, 360)
+collision_layer = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallCollisions/LeftWallCollision"]
+polygon = PackedVector2Array(-20, -360, 20, -360, 20, 360, -20, 360)
+
+[node name="RightWallCollision" type="StaticBody2D" parent="WallCollisions"]
+position = Vector2(1900, 360)
+collision_layer = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallCollisions/RightWallCollision"]
+polygon = PackedVector2Array(-20, -360, 20, -360, 20, 360, -20, 360)
+
+[node name="CeilingCollision" type="StaticBody2D" parent="WallCollisions"]
+position = Vector2(960, 20)
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallCollisions/CeilingCollision"]
+polygon = PackedVector2Array(-960, -20, 960, -20, 960, 20, -960, 20)
+
+[node name="TutorialArrows" type="Node2D" parent="."]
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(960, 800)
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="TutorialUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TutorialPanel" type="Panel" parent="TutorialUI"]
+modulate = Color(1, 1, 1, 0.9)
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 420.0
+offset_bottom = 120.0
+
+[node name="TutorialText" type="RichTextLabel" parent="TutorialUI/TutorialPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Welcome to GLITCH RUNNER!
+The PERFECT game with ZERO bugs!
+Use A/D to move, SPACE to jump!"
+fit_content = true

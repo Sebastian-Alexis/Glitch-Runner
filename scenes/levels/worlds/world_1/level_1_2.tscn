@@ -1,0 +1,233 @@
+[gd_scene load_steps=5 format=3 uid="uid://blevel12xxxxx"]
+
+[ext_resource type="Script" path="res://scripts/levels/level_manager.gd" id="1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(2400, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2"]
+size = Vector2(96, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3"]
+size = Vector2(64, 128)
+
+[node name="Level_1_2" type="Node2D"]
+script = ExtResource("1")
+level_id = 1
+level_name = "Advanced Jumping Techniques"
+is_tutorial = true
+par_time = 35.0
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 2400.0
+offset_bottom = 720.0
+color = Color(0.529, 0.808, 0.922, 1)
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(100, 500)
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Ground" type="StaticBody2D" parent="Platforms"]
+position = Vector2(300, 680)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Ground"]
+position = Vector2(-100, 0)
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/Ground"]
+offset_left = -148.0
+offset_top = -16.0
+offset_right = -52.0
+offset_bottom = 16.0
+color = Color(0.4, 0.6, 0.3, 1)
+
+[node name="Platform1" type="StaticBody2D" parent="Platforms"]
+position = Vector2(500, 580)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform1"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/Platform1"]
+offset_left = -48.0
+offset_top = -16.0
+offset_right = 48.0
+offset_bottom = 16.0
+color = Color(0.5, 0.7, 0.4, 1)
+
+[node name="Platform2" type="StaticBody2D" parent="Platforms"]
+position = Vector2(750, 480)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform2"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/Platform2"]
+offset_left = -48.0
+offset_top = -16.0
+offset_right = 48.0
+offset_bottom = 16.0
+color = Color(0.5, 0.7, 0.4, 1)
+
+[node name="Platform3_High" type="StaticBody2D" parent="Platforms"]
+position = Vector2(1000, 320)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform3_High"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/Platform3_High"]
+offset_left = -48.0
+offset_top = -16.0
+offset_right = 48.0
+offset_bottom = 16.0
+color = Color(0.6, 0.8, 0.5, 1)
+
+[node name="HighLabel" type="Label" parent="Platforms/Platform3_High"]
+offset_left = -50.0
+offset_top = -40.0
+offset_right = 50.0
+offset_bottom = -20.0
+text = "Hold jump!"
+horizontal_alignment = 1
+
+[node name="Platform4_Gap" type="StaticBody2D" parent="Platforms"]
+position = Vector2(1350, 450)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform4_Gap"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/Platform4_Gap"]
+offset_left = -48.0
+offset_top = -16.0
+offset_right = 48.0
+offset_bottom = 16.0
+color = Color(0.5, 0.7, 0.4, 1)
+
+[node name="Platform5_Precision" type="StaticBody2D" parent="Platforms"]
+position = Vector2(1600, 380)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform5_Precision"]
+position = Vector2(0, 0)
+scale = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/Platform5_Precision"]
+offset_left = -24.0
+offset_top = -16.0
+offset_right = 24.0
+offset_bottom = 16.0
+color = Color(0.7, 0.5, 0.5, 1)
+
+[node name="SmallLabel" type="Label" parent="Platforms/Platform5_Precision"]
+offset_left = -60.0
+offset_top = -40.0
+offset_right = 60.0
+offset_bottom = -20.0
+text = "Precision jump!"
+horizontal_alignment = 1
+
+[node name="Platform6_Series" type="StaticBody2D" parent="Platforms"]
+position = Vector2(1800, 450)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform6_Series"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/Platform6_Series"]
+offset_left = -48.0
+offset_top = -16.0
+offset_right = 48.0
+offset_bottom = 16.0
+color = Color(0.5, 0.7, 0.4, 1)
+
+[node name="Platform7_Final" type="StaticBody2D" parent="Platforms"]
+position = Vector2(2050, 500)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform7_Final"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/Platform7_Final"]
+offset_left = -48.0
+offset_top = -16.0
+offset_right = 48.0
+offset_bottom = 16.0
+color = Color(0.5, 0.7, 0.4, 1)
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2(2200, 450)
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+shape = SubResource("RectangleShape2D_3")
+
+[node name="ColorRect" type="ColorRect" parent="Goal"]
+offset_left = -32.0
+offset_top = -64.0
+offset_right = 32.0
+offset_bottom = 64.0
+color = Color(1, 0.843, 0, 1)
+
+[node name="GoalLabel" type="Label" parent="Goal"]
+offset_left = -40.0
+offset_top = -90.0
+offset_right = 40.0
+offset_bottom = -65.0
+text = "GOAL!"
+horizontal_alignment = 1
+
+[node name="TutorialHints" type="Node2D" parent="."]
+
+[node name="Hint1" type="Label" parent="TutorialHints"]
+offset_left = 850.0
+offset_top = 250.0
+offset_right = 1150.0
+offset_bottom = 280.0
+text = "↑ Maximum jump height required!"
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+
+[node name="Hint2" type="Label" parent="TutorialHints"]
+offset_left = 1450.0
+offset_top = 330.0
+offset_right = 1750.0
+offset_bottom = 360.0
+text = "← Careful! Precise landing!"
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(1200, 800)
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="TutorialUI" type="CanvasLayer" parent="."]
+
+[node name="TutorialPanel" type="Panel" parent="TutorialUI"]
+modulate = Color(1, 1, 1, 0.9)
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 480.0
+offset_bottom = 140.0
+
+[node name="TutorialText" type="RichTextLabel" parent="TutorialUI/TutorialPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+text = "Advanced Jumping Techniques!
+Hold SPACE longer for higher jumps!
+Tap SPACE quickly for short hops!
+Every jump is PERFECTLY calibrated!"
+fit_content = true

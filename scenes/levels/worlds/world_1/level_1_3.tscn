@@ -1,0 +1,336 @@
+[gd_scene load_steps=5 format=3 uid="uid://blevel13xxxxx"]
+
+[ext_resource type="Script" path="res://scripts/levels/level_manager.gd" id="1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(3000, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2"]
+size = Vector2(80, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3"]
+size = Vector2(80, 160)
+
+[node name="Level_1_3" type="Node2D"]
+script = ExtResource("1")
+level_id = 2
+level_name = "Congratulations - Final Test!"
+is_tutorial = true
+par_time = 45.0
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 3000.0
+offset_bottom = 720.0
+color = Color(0.529, 0.808, 0.922, 1)
+
+[node name="GradientOverlay" type="ColorRect" parent="."]
+offset_right = 3000.0
+offset_bottom = 720.0
+color = Color(1, 0.95, 0.8, 0.1)
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(100, 500)
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="StartGround" type="StaticBody2D" parent="Platforms"]
+position = Vector2(200, 680)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StartGround"]
+scale = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/StartGround"]
+offset_left = -80.0
+offset_top = -16.0
+offset_right = 80.0
+offset_bottom = 16.0
+color = Color(0.4, 0.6, 0.3, 1)
+
+[node name="JumpTest1" type="StaticBody2D" parent="Platforms"]
+position = Vector2(450, 550)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/JumpTest1"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/JumpTest1"]
+offset_left = -40.0
+offset_top = -16.0
+offset_right = 40.0
+offset_bottom = 16.0
+color = Color(0.5, 0.7, 0.4, 1)
+
+[node name="JumpTest2" type="StaticBody2D" parent="Platforms"]
+position = Vector2(650, 450)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/JumpTest2"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/JumpTest2"]
+offset_left = -40.0
+offset_top = -16.0
+offset_right = 40.0
+offset_bottom = 16.0
+color = Color(0.5, 0.7, 0.4, 1)
+
+[node name="PrecisionSection" type="Node2D" parent="Platforms"]
+position = Vector2(1000, 0)
+
+[node name="Narrow1" type="StaticBody2D" parent="Platforms/PrecisionSection"]
+position = Vector2(0, 400)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/PrecisionSection/Narrow1"]
+scale = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/PrecisionSection/Narrow1"]
+offset_left = -20.0
+offset_top = -16.0
+offset_right = 20.0
+offset_bottom = 16.0
+color = Color(0.7, 0.5, 0.5, 1)
+
+[node name="Narrow2" type="StaticBody2D" parent="Platforms/PrecisionSection"]
+position = Vector2(150, 350)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/PrecisionSection/Narrow2"]
+scale = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/PrecisionSection/Narrow2"]
+offset_left = -20.0
+offset_top = -16.0
+offset_right = 20.0
+offset_bottom = 16.0
+color = Color(0.7, 0.5, 0.5, 1)
+
+[node name="Narrow3" type="StaticBody2D" parent="Platforms/PrecisionSection"]
+position = Vector2(300, 420)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/PrecisionSection/Narrow3"]
+scale = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/PrecisionSection/Narrow3"]
+offset_left = -20.0
+offset_top = -16.0
+offset_right = 20.0
+offset_bottom = 16.0
+color = Color(0.7, 0.5, 0.5, 1)
+
+[node name="ClimbSection" type="Node2D" parent="Platforms"]
+position = Vector2(1500, 0)
+
+[node name="Step1" type="StaticBody2D" parent="Platforms/ClimbSection"]
+position = Vector2(0, 500)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/ClimbSection/Step1"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/ClimbSection/Step1"]
+offset_left = -40.0
+offset_top = -16.0
+offset_right = 40.0
+offset_bottom = 16.0
+color = Color(0.6, 0.6, 0.8, 1)
+
+[node name="Step2" type="StaticBody2D" parent="Platforms/ClimbSection"]
+position = Vector2(120, 400)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/ClimbSection/Step2"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/ClimbSection/Step2"]
+offset_left = -40.0
+offset_top = -16.0
+offset_right = 40.0
+offset_bottom = 16.0
+color = Color(0.6, 0.6, 0.8, 1)
+
+[node name="Step3" type="StaticBody2D" parent="Platforms/ClimbSection"]
+position = Vector2(240, 300)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/ClimbSection/Step3"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/ClimbSection/Step3"]
+offset_left = -40.0
+offset_top = -16.0
+offset_right = 40.0
+offset_bottom = 16.0
+color = Color(0.6, 0.6, 0.8, 1)
+
+[node name="Step4" type="StaticBody2D" parent="Platforms/ClimbSection"]
+position = Vector2(360, 200)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/ClimbSection/Step4"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/ClimbSection/Step4"]
+offset_left = -40.0
+offset_top = -16.0
+offset_right = 40.0
+offset_bottom = 16.0
+color = Color(0.6, 0.6, 0.8, 1)
+
+[node name="FinalStretch" type="Node2D" parent="Platforms"]
+position = Vector2(2000, 0)
+
+[node name="Platform1" type="StaticBody2D" parent="Platforms/FinalStretch"]
+position = Vector2(0, 350)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/FinalStretch/Platform1"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/FinalStretch/Platform1"]
+offset_left = -40.0
+offset_top = -16.0
+offset_right = 40.0
+offset_bottom = 16.0
+color = Color(0.8, 0.8, 0.4, 1)
+
+[node name="Platform2" type="StaticBody2D" parent="Platforms/FinalStretch"]
+position = Vector2(200, 400)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/FinalStretch/Platform2"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/FinalStretch/Platform2"]
+offset_left = -40.0
+offset_top = -16.0
+offset_right = 40.0
+offset_bottom = 16.0
+color = Color(0.8, 0.8, 0.4, 1)
+
+[node name="Platform3" type="StaticBody2D" parent="Platforms/FinalStretch"]
+position = Vector2(400, 450)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/FinalStretch/Platform3"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/FinalStretch/Platform3"]
+offset_left = -40.0
+offset_top = -16.0
+offset_right = 40.0
+offset_bottom = 16.0
+color = Color(0.8, 0.8, 0.4, 1)
+
+[node name="GoalPlatform" type="StaticBody2D" parent="Platforms"]
+position = Vector2(2600, 500)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/GoalPlatform"]
+scale = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_2")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/GoalPlatform"]
+offset_left = -80.0
+offset_top = -16.0
+offset_right = 80.0
+offset_bottom = 16.0
+color = Color(0.9, 0.9, 0.3, 1)
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2(2600, 400)
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+shape = SubResource("RectangleShape2D_3")
+
+[node name="ColorRect" type="ColorRect" parent="Goal"]
+offset_left = -40.0
+offset_top = -80.0
+offset_right = 40.0
+offset_bottom = 80.0
+color = Color(1, 0.843, 0, 1)
+
+[node name="GoalLabel" type="Label" parent="Goal"]
+offset_left = -60.0
+offset_top = -110.0
+offset_right = 60.0
+offset_bottom = -85.0
+text = "PERFECTION!"
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="CongratulationsLabel" type="Label" parent="Goal"]
+offset_left = -100.0
+offset_top = 90.0
+offset_right = 100.0
+offset_bottom = 120.0
+text = "You did it perfectly!"
+horizontal_alignment = 1
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(1500, 800)
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="TutorialUI" type="CanvasLayer" parent="."]
+
+[node name="TutorialPanel" type="Panel" parent="TutorialUI"]
+modulate = Color(1, 1, 1, 0.9)
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 520.0
+offset_bottom = 160.0
+
+[node name="TutorialText" type="RichTextLabel" parent="TutorialUI/TutorialPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+text = "FINAL TEST - Show Your Mastery!
+Combine everything you've learned!
+Precision! Timing! Perfection!
+Claude is watching with 101% confidence!
+You've got this!"
+fit_content = true
+
+[node name="MotivationalMessages" type="Node2D" parent="."]
+
+[node name="Message1" type="Label" parent="MotivationalMessages"]
+offset_left = 900.0
+offset_top = 300.0
+offset_right = 1100.0
+offset_bottom = 330.0
+text = "Precision Required!"
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+
+[node name="Message2" type="Label" parent="MotivationalMessages"]
+offset_left = 1400.0
+offset_top = 150.0
+offset_right = 1700.0
+offset_bottom = 180.0
+text = "Climb to Victory!"
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+
+[node name="Message3" type="Label" parent="MotivationalMessages"]
+offset_left = 2100.0
+offset_top = 300.0
+offset_right = 2400.0
+offset_bottom = 330.0
+text = "Almost Perfect!"
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
